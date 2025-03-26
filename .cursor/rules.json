@@ -1,0 +1,86 @@
+{
+  "codeRules": [
+    {
+      "name": "noConsoleLog",
+      "description": "Avoid using console.log in production code",
+      "pattern": "console\\.log\\(",
+      "replacement": "logger.debug(",
+      "severity": "warning",
+      "excludePatterns": ["**/*.test.ts", "**/*.spec.ts"]
+    },
+    {
+      "name": "properErrorHandling",
+      "description": "Always use try/catch with proper error handling",
+      "pattern": "try\\s*{[^}]*}\\s*catch\\s*\\(\\w+\\)\\s*{[^}]*console\\.error",
+      "replacement": "try { ... } catch (error) { next(error); }",
+      "severity": "error",
+      "includePatterns": ["**/controllers/**/*.ts"]
+    },
+    {
+      "name": "typedProps",
+      "description": "Always define interface for component props",
+      "pattern": "const [A-Z][A-Za-z0-9]*\\s*=\\s*\\(\\{[^}]*\\}\\)\\s*=>",
+      "replacement": "interface ComponentProps { ... }\n\nconst Component: React.FC<ComponentProps> = ({ ... }) =>",
+      "severity": "warning",
+      "includePatterns": ["**/*.tsx"]
+    },
+    {
+      "name": "useAsyncAwait",
+      "description": "Prefer async/await over Promises",
+      "pattern": "\\.then\\(\\s*\\([^)]*\\)\\s*=>\\s*{",
+      "replacement": "const result = await promise;\n// Process result",
+      "severity": "info"
+    }
+  ],
+  "namingConventions": [
+    {
+      "type": "component",
+      "pattern": "^[A-Z][A-Za-z0-9]+$",
+      "message": "React components should use PascalCase"
+    },
+    {
+      "type": "function",
+      "pattern": "^[a-z][A-Za-z0-9]+$",
+      "message": "Functions should use camelCase"
+    },
+    {
+      "type": "interface",
+      "pattern": "^I[A-Z][A-Za-z0-9]+$",
+      "message": "Interfaces should be prefixed with 'I' and use PascalCase"
+    },
+    {
+      "type": "enum",
+      "pattern": "^E[A-Z][A-Za-z0-9]+$",
+      "message": "Enums should be prefixed with 'E' and use PascalCase"
+    },
+    {
+      "type": "constant",
+      "pattern": "^[A-Z][A-Z0-9_]+$",
+      "message": "Constants should use UPPER_SNAKE_CASE"
+    }
+  ],
+  "structureRules": [
+    {
+      "name": "componentStructure",
+      "description": "React component file structure",
+      "template": [
+        "// Imports",
+        "// Types/Interfaces",
+        "// Component",
+        "// Helper functions",
+        "// Exports"
+      ]
+    },
+    {
+      "name": "controllerStructure",
+      "description": "API controller file structure",
+      "template": [
+        "// Imports",
+        "// Types",
+        "// Controller methods",
+        "// Helper functions",
+        "// Exports"
+      ]
+    }
+  ]
+}

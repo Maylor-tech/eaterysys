@@ -1,0 +1,13 @@
+# Contributing to EaterySys
+
+## Code of Conduct
+...
+
+## How to Contribute
+...
+
+## Development Process
+...
+
+## Pull Request Process
+... 

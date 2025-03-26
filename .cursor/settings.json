@@ -1,0 +1,46 @@
+{
+  "editor": {
+    "formatOnSave": true,
+    "tabSize": 2,
+    "insertSpaces": true,
+    "rulers": [100],
+    "wordWrap": "off",
+    "cursorBlinking": "smooth",
+    "fontFamily": "Fira Code, monospace",
+    "fontSize": 14,
+    "lineHeight": 1.5
+  },
+  "terminal": {
+    "fontSize": 14,
+    "lineHeight": 1.2,
+    "fontFamily": "Fira Code, monospace"
+  },
+  "explorer": {
+    "sortOrder": "type",
+    "openEditors": {
+      "visible": 3
+    }
+  },
+  "files": {
+    "exclude": {
+      "**/.git": true,
+      "**/.DS_Store": true,
+      "**/node_modules": true,
+      "**/dist": true,
+      "**/.next": true
+    },
+    "associations": {
+      "*.tsx": "typescriptreact",
+      "*.ts": "typescript",
+      "*.md": "markdown",
+      "*.yml": "yaml"
+    }
+  },
+  "search": {
+    "exclude": {
+      "**/node_modules": true,
+      "**/dist": true,
+      "**/.next": true
+    }
+  }
+} 

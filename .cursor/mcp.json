@@ -1,0 +1,78 @@
+{
+  "name": "EaterySys",
+  "description": "AI-powered restaurant management platform",
+  "version": "0.1.0",
+  "language": "typescript",
+  "contextSize": 5000,
+  "tools": [
+    {
+      "name": "menuBuilder",
+      "description": "Creates menu structures and relationships",
+      "patterns": ["**/menu/**/*.ts", "**/menu/**/*.tsx"]
+    },
+    {
+      "name": "inventoryTracker",
+      "description": "Tracks inventory levels and transactions",
+      "patterns": ["**/inventory/**/*.ts", "**/inventory/**/*.tsx"]
+    },
+    {
+      "name": "staffScheduler",
+      "description": "Manages staff scheduling and performance",
+      "patterns": ["**/labor/**/*.ts", "**/labor/**/*.tsx"]
+    },
+    {
+      "name": "complianceManager",
+      "description": "Handles regulatory compliance tracking",
+      "patterns": ["**/compliance/**/*.ts", "**/compliance/**/*.tsx"]
+    }
+  ],
+  "fileTypes": [
+    {
+      "type": "component",
+      "patterns": ["**/*Component.tsx", "**/components/**/*.tsx"],
+      "description": "React component files"
+    },
+    {
+      "type": "hook",
+      "patterns": ["**/hooks/**/*.ts", "**/hooks/**/*.tsx", "**/*Hook.ts"],
+      "description": "React custom hooks"
+    },
+    {
+      "type": "service",
+      "patterns": ["**/services/**/*.ts", "**/*Service.ts"],
+      "description": "Service layer files"
+    },
+    {
+      "type": "controller",
+      "patterns": ["**/controllers/**/*.ts", "**/*Controller.ts"],
+      "description": "API controller files"
+    },
+    {
+      "type": "model",
+      "patterns": ["**/models/**/*.ts", "**/*Model.ts"],
+      "description": "Data model files"
+    },
+    {
+      "type": "test",
+      "patterns": ["**/*.test.ts", "**/*.test.tsx", "**/*.spec.ts", "**/*.spec.tsx"],
+      "description": "Test files"
+    }
+  ],
+  "customPatterns": [
+    {
+      "name": "apiEndpoint",
+      "pattern": "router\\.(get|post|put|delete|patch)\\(['\"]([^'\"]+)['\"]",
+      "description": "API endpoint definition"
+    },
+    {
+      "name": "reactComponent",
+      "pattern": "const ([A-Z][A-Za-z0-9]+)\\s*:\\s*React\\.FC",
+      "description": "React functional component"
+    },
+    {
+      "name": "databaseQuery",
+      "pattern": "await supabase\\.(from|rpc)\\(['\"]([^'\"]+)['\"]\\)",
+      "description": "Supabase database query"
+    }
+  ]
+}

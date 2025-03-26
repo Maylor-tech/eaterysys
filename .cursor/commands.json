@@ -1,0 +1,45 @@
+{
+  "customCommands": [
+    {
+      "name": "generateComponent",
+      "description": "Generate a new React component",
+      "prompt": "Create a React component named {name} with the following props: {props}. Include proper TypeScript types, error handling, and follow our project standards.",
+      "outputPath": "frontend/src/components/{module}/{name}.tsx"
+    },
+    {
+      "name": "generateApiEndpoint",
+      "description": "Generate a new API endpoint",
+      "prompt": "Create a REST API endpoint for {resource} with {method} method. Include validation, error handling, and proper documentation.",
+      "outputPath": "backend/src/routes/{resource}.ts"
+    },
+    {
+      "name": "generateModel",
+      "description": "Generate a database model",
+      "prompt": "Create a data model for {entity} with the following fields: {fields}. Include proper types and validation.",
+      "outputPath": "backend/src/models/{entity}.ts"
+    },
+    {
+      "name": "generateTest",
+      "description": "Generate tests for a component or function",
+      "prompt": "Create tests for {target} covering the following scenarios: {scenarios}.",
+      "outputPath": "{targetPath}/{targetName}.test.{extension}"
+    }
+  ],
+  "snippets": [
+    {
+      "name": "apiController",
+      "description": "Boilerplate for API controller",
+      "code": "export const ${1:methodName} = async (req: Request, res: Response, next: NextFunction) => {\n  try {\n    const { ${2:params} } = req.${3:params};\n    const result = await ${4:serviceName}.${5:serviceMethod}(${6:args});\n    return res.status(200).json({ success: true, data: result });\n  } catch (error) {\n    next(error);\n  }\n};"
+    },
+    {
+      "name": "reactComponent",
+      "description": "Boilerplate for React component",
+      "code": "import React from 'react';\n\ninterface ${1:ComponentName}Props {\n  ${2:prop}: ${3:type};\n}\n\nexport const ${1:ComponentName}: React.FC<${1:ComponentName}Props> = ({ ${2:prop} }) => {\n  return (\n    <div>\n      ${4:content}\n    </div>\n  );\n};"
+    },
+    {
+      "name": "supabaseQuery",
+      "description": "Boilerplate for Supabase query",
+      "code": "const { data, error } = await supabase\n  .from('${1:table}')\n  .select('${2:columns}')\n  .eq('${3:column}', ${4:value});\n\nif (error) throw new Error(`Error fetching ${1:table}: ${error.message}`);\nreturn data;"
+    }
+  ]
+}

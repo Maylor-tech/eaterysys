@@ -1,0 +1,18 @@
+{
+  "name": "eaterysys",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:e2e": "cypress run",
+    "prepare": "husky install"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+} 
